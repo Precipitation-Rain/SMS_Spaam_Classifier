@@ -1,11 +1,12 @@
 import streamlit as st
+import os
 import pickle
 import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 ps = PorterStemmer()
-nltk.data.path.append("./nltk_data")
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 
 def transform_text(text):
     text = text.lower()
