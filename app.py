@@ -3,10 +3,22 @@ import os
 import pickle
 import string
 import nltk
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 ps = PorterStemmer()
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+
+
 
 def transform_text(text):
     text = text.lower()
